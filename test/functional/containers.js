@@ -5,7 +5,6 @@ var assert = chai.assert
 
 var async = require('async')
 var checkClean = require('./fixtures').checkClean
-var concat = require('concat-stream')
 var createCount = require('callback-count')
 var dockerMock = require('../../lib/index')
 var noop = require('101/noop')
@@ -258,12 +257,8 @@ describe('containers', function () {
       ], function (err, data) {
         if (err) { return done(err) }
         var logs = data[1]
-        var count = createCount(2, done)
-        logs.pipe(concat(function (logBuffer) {
-          assert.equal(logBuffer.toString(), 'Just a bunch of text')
-          count.next()
-        }))
-        logs.on('end', function () { count.next() })
+        assert.equal(logs, 'Just a bunch of text')
+        done()
       })
     })
     it('should should not start twice', function (done) {
