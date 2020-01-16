@@ -46,7 +46,6 @@
     "bluebird": "^3.3.4",
     "body-parser": "^1.10.1",
     "callback-count": "^0.2.0",
-    "duplex-emitter": "^2.1.2",
     "express": "^4.6.1",
     "keypather": "^1.10.1",
     "middleware-flow": "^0.8.0",

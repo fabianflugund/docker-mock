@@ -8,6 +8,8 @@ var fs = require('fs')
 var https = require('https')
 var join = require('path').join
 
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 var docker = require('dockerode')({
   protocol: 'https',
   host: 'localhost',
